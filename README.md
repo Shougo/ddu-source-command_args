@@ -17,5 +17,12 @@ https://github.com/Shougo/ddu.vim
 ## Configuration
 
 ```vim
+call ddu#custom#patch_global(#{
+    \   sourceOptions: #{
+    \     command_args: #{
+    \       defaultAction: 'execute',
+    \     },
+    \   },
+    \ })
 call ddu#start(#{ sources: [#{ name: 'command_args' }] })
 ```
