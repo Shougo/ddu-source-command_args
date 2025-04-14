@@ -3,8 +3,8 @@ import {
   type Actions,
   type DduItem,
   type Item,
-} from "jsr:@shougo/ddu-vim@~6.1.0/types";
-import { BaseSource } from "jsr:@shougo/ddu-vim@~6.1.0/source";
+} from "jsr:@shougo/ddu-vim@~10.3.0/types";
+import { BaseSource } from "jsr:@shougo/ddu-vim@~10.3.0/source";
 
 import type { Denops } from "jsr:@denops/core@~7.0.0";
 
@@ -37,16 +37,19 @@ export class Source extends BaseSource<Params> {
   }
 
   override actions: Actions<Params> = {
-    execute: async (args: {
-      denops: Denops;
-      items: DduItem[];
-      sourceParams: Params;
-    }) => {
-      for (const item of args.items) {
-        const action = item.action as ActionData;
-        await args.denops.cmd(`${args.sourceParams.command} ${action.arg}`);
-      }
-      return Promise.resolve(ActionFlags.None);
+    execute: {
+      description: "Execute the command with args.",
+      callback: async (args: {
+        denops: Denops;
+        items: DduItem[];
+        sourceParams: Params;
+      }) => {
+        for (const item of args.items) {
+          const action = item.action as ActionData;
+          await args.denops.cmd(`${args.sourceParams.command} ${action.arg}`);
+        }
+        return Promise.resolve(ActionFlags.None);
+      },
     },
   };
 
