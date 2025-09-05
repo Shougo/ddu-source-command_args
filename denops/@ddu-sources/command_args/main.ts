@@ -3,10 +3,10 @@ import {
   type Actions,
   type DduItem,
   type Item,
-} from "jsr:@shougo/ddu-vim@~10.3.0/types";
-import { BaseSource } from "jsr:@shougo/ddu-vim@~10.3.0/source";
+} from "@shougo/ddu-vim/types";
+import { BaseSource } from "@shougo/ddu-vim/source";
 
-import type { Denops } from "jsr:@denops/core@~7.0.0";
+import type { Denops } from "@denops/std";
 
 type Params = {
   command: string;
