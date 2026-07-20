@@ -28,7 +28,7 @@ https://github.com/vim-denops/denops.vim
 
 ==============================================================================
 EXAMPLES                                    *ddu-source-command_args-examples*
->
+>vim
 	call ddu#custom#patch_global(#{
 	    \   sourceOptions: #{
 	    \     command_args: #{
